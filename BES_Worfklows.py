@@ -28,6 +28,11 @@ def detect_belief(df_row, row_index, reasoning_model_parameters, text_2_json_mod
         print(belief_status)
         belief_detected = belief_status['belief_detected']
 
+        if belief_detected == "true":
+            belief_detected = True
+        else:
+            belief_detected = False    
+    
     return detection_reasoning_trace, belief_detected
 
 def extract_belief(df_row, row_index, reasoning_model_parameters, text_2_json_model_parameters, ollama_client):
