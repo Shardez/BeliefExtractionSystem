@@ -63,7 +63,7 @@ In addition to sending the response back to the client app it also allows to sav
 /tests/analyze_multiple_message.py - implements a simple client application which emulates API requests. loads all conversations from .json and sends them all together to "/api/analyze_multiple_messages" endpoint
 
 /data/conversations.json - contains example conversational data.  
-/data/conversations_short.json – a shortened version of conversation.json, contains single conversation with only two messages..
+/data/conversations_short.json – a shortened version of conversation.json, contains single conversation with only two messages.
 
 ## How to Run
 1. Make sure Ollama is running - you can check by running the following command in the terminal
