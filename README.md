@@ -5,7 +5,7 @@ The purpose of this project is to develop a REST API endpoint to evaluate the co
 determine what the user believes about themselves or a topic.
 
 ## Installation
-```git clone ```
+```git clone https://github.com/Shardez/BeliefExtractionSystem```
 
 ### Ollama
 Download and install Ollama locally for your OS:
