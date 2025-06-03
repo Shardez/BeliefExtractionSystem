@@ -43,29 +43,26 @@ pip install pandas
 ```
 
 ## Structure
-BES_Worfklows.py - implements the following logic:
-Implements a sequential workflow that first checks whether the conversational text contains any user beliefs related to mental resilience and self-perception.
-If such beliefs are found, the algorithm proceeds to analyze the belief, determine its impact ("positive" or "negative"), and identify the dimension and category of the belief.
+BES_Worfklows.py - implements the following logic: Implements a sequential workflow that first checks whether the conversational text contains any user beliefs related to mental resilience and self-perception. If such beliefs are found, the algorithm proceeds to analyze the belief, determine its impact ("positive" or "negative"), and identify the dimension and category of the belief.
 
 BES_Ollama.py - implements text processing functionality using Ollama as language inference engine.
 
 BES_Pydantic_Models.py - stores Pydantic models which are used for structured output generation.
 
-BES_System_Prompts.py - stores system prompts used for detection and analysis of user beliefs related to mental resilience and self-perception.
+BES_System_Prompts.py - stores system prompts used for detection and analysis of user beliefs related to mental resilience and self-perception.  
+main.py - implements FastAPI server with two POST endpoints:
+- "/api/analyze_single_message" - which analyzes a single message at a time
+- "/api/analyze_multiple_messages" - which sequentially processes messages present in messages_list for each conversation present in the supplied JSON object.
 
-main.py - implements FastAPI server with two POST endpoints:   
-"/api/analyze_single_message" - which analyzes a single message at a time  
-"/api/analyze_multiple_messages" - which sequentially processes messages present in messages_list for each conversation present in the supplied JSON object.  
 The model parameters used for reasoning and structured output can be configured using "reasoning_model_parameters" and "text_2_json_model_parameters"  
 In addition to sending the response back to the client app it also allows to save analysis results to .csv file using "save_csv" variable (enabled by default)  
 
-/tests/analyze_single_message.py - implments a simple client application which emulates API requests by loading conversations from .json and sending individual messages one by one to "api/analyze_single_message" endpoint
+/tests/analyze_single_message.py - implements a simple client application which emulates API requests. loads conversations from .json and sending individual messages one by one to "api/analyze_single_message" endpoint
 
-/tests/analyze_multiple_message.py - implments a simple client application which emulates API requests by loading conversations from .json and sending them all together to "/api/analyze_multiple_messages" endpoint
+/tests/analyze_multiple_message.py - implements a simple client application which emulates API requests. loads all conversations from .json and sends them all together to "/api/analyze_multiple_messages" endpoint
 
-/data/conversations.json - contains example convesational data.
-
-/data/conversations_short.json - shorthened version of conversation.json, contains single conversation with only two messages.
+/data/conversations.json - contains example conversational data.  
+/data/conversations_short.json – a shortened version of conversation.json, contains single conversation with only two messages..
 
 ## How to Run
 1. Make sure Ollama is running - you can check by running the following command in the terminal
