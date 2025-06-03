@@ -53,17 +53,18 @@ BES_Pydantic_Models.py - stores Pydantic models which are used for structured ou
 
 BES_System_Prompts.py - stores system prompts used for detection and analysis of user beliefs related to mental resilience and self-perception.
 
-main.py - implements FastAPI server with two POST endpoints: 
-"/api/analyze_single_message" - which analyzes a single message at a time
-"/api/analyze_multiple_messages" - which sequentially processes messages present in messages_list for each conversation present in the supplied JSON object.
-The model parameters used for reasoning and structured output can be configured using "reasoning_model_parameters" and "text_2_json_model_parameters"
-In addition to sending the response back to the client app it also allows to save analysis results to .csv file using "save_csv" variable (enabled by default)
+main.py - implements FastAPI server with two POST endpoints:   
+"/api/analyze_single_message" - which analyzes a single message at a time  
+"/api/analyze_multiple_messages" - which sequentially processes messages present in messages_list for each conversation present in the supplied JSON object.  
+The model parameters used for reasoning and structured output can be configured using "reasoning_model_parameters" and "text_2_json_model_parameters"  
+In addition to sending the response back to the client app it also allows to save analysis results to .csv file using "save_csv" variable (enabled by default)  
 
 /tests/analyze_single_message.py - implments a simple client application which emulates API requests by loading conversations from .json and sending individual messages one by one to "api/analyze_single_message" endpoint
 
 /tests/analyze_multiple_message.py - implments a simple client application which emulates API requests by loading conversations from .json and sending them all together to "/api/analyze_multiple_messages" endpoint
 
 /data/conversations.json - contains example convesational data.
+
 /data/conversations_short.json - shorthened version of conversation.json, contains single conversation with only two messages.
 
 ## How to Run
